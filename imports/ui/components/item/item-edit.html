@@ -1,0 +1,41 @@
+<template name="Item_edit">
+  <div class="panel panel-default">
+    <div class="panel-heading">Crear nuevo producto</div>
+    <div class="panel-body">
+      <form class="form-horizontal" data-action='form'>
+        <div class="form-group">
+          <label class="control-label" for='nameInput'>Nombre</label>
+          <input  placeholder=" 'Tapa AXF', 'Pomo ER'" id='nameInput'   data-action='nameInput' name='name' type="text" class="form-control"  value={{item.name}}>
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='descInput'>Descripci&oacute;n del producto </label>
+          <input  placeholder=" 'Pomo azul de 50 mm', 'Tapa roscada con paso 3 decimas' " id='descInput'   data-action='descInput' name='desc' type="text" class="form-control"  value={{item.desc}}>
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='profitCenterSelect'>{{_ "Profit center"}} </label>
+          <select id="profitCenterSelect" name="profitcenter" class='form-control'>
+            <option value=''>{{_ "Select"}} </option>
+            {{#each pc in profitCenters}}
+            <option value='{{pc._id}}' >{{pc.name}}</option>
+            {{/each}}
+          <option value='undefined-pc'>{{_ "To be defined by the administrator"}}</option>
+          </select>
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+    
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+          <div class="col-sm-8 col-sm-offset-2">
+            <span class="btn btn-default js-cancel">Cancelar</span>
+            <button class="btn btn-success js-save" type="submit">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>  
+  </div>    
+</template>

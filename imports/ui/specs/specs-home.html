@@ -1,0 +1,222 @@
+<template name="SpecsHome">
+  <div class='wrapper'>
+    <h1>Serabey Specifications</h1>
+    
+    
+    <h2>User Creation</h2>
+    <div class='panel'>
+      <p>
+        A new user is created via the form and via a method it is assigned a userssok,
+         server side only key.
+      
+      The router checks if there is a relatedPerson in the user and redirects accordingly.
+        
+      profileshowpage.js sets relatedPerson on the Session.
+      
+       If undefined, the profile edit module 
+      shows up and the user must fill in contact data.
+      
+        The user is prompted to create a profile.
+        
+        A method called createPerson inserts the Person and updates the User document.
+        
+        Now the user and the person share the same ssok for validation purposes.
+        
+      </p>
+    </div>
+
+
+    
+<h3>Persons</h3>  
+<div class='panel'>
+  
+name
+middleName
+lastName
+bDay
+email
+phone
+mobile
+internalPhone
+fin 
+finType
+isMale
+
+    
+  </div>
+    
+<h3>Publications</h3>  
+<div class='panel'>
+  
+<p>
+  userdata : relatedPerson and emails
+</p>
+<h3>Worker Rels</h3>  
+<div class='panel'>
+  
+<p>
+  to set admin
+  meteor:PRIMARY> db.users.update({'_id':person id},{$set:{'admins':company id}})
+</p>
+
+
+    
+  </div>
+  </div>
+  
+
+    
+<h3>Payments</h3>  
+<div class='panel'>
+  
+<p>
+  paymentDays :negotiated payment condition with a customer or vendor   
+  . Number of days between delivery and actual collection of money.
+  
+  <br>
+  paymentMethodDays: Days between emission of a paying document
+  and acreditation of values. E.g., a check to 30 days must substract 30 days from the negotiated payment condition
+  <br>
+  paymentMethodName: 'Cheque 30 dias', 'Efectivo', 'Letra de cambio'
+  <br>
+  paymentMethodId: A collection paymentMethods is created and accessed by all users in Serabey.A module that useraccountspayments 
+  stores copies the id and the name and the value in days. If the collection is updated, changes must be propagated to all rels using this payment condition.
+  
+</p>
+<!-- begin block -->
+  
+<h3>Create a company admin</h3>  
+
+<div class='panel'>
+  
+<p>
+  To set a user like an admin of a company,
+  call the Method 'createAdmin' from the console.
+  with userId and companyId as args.
+  
+</p>
+</div>
+
+<!-- end block -->
+  <!-- begin block -->
+<h3>Worker Rels</h3>  
+<div class='panel'>
+  
+
+<p>
+  A jobs array is created in the user. 
+  All job data is stored there.
+  A workerRel is created.
+   If the user does not work for a company, 
+   a default job is created with his own name. 
+   Like a freelancer.
+   companyName =  name
+   companyId = relatedPerson id
+   workerRelId
+   position= 'Freelancer'
+</p>
+<p>
+  By default, the job is 0. A job: 0 key is set in Session at startup.
+</p>
+<p>
+  When the company admin validates a position, the method  updates the user.
+</p>
+</div>
+<!-- end block -->
+  <!-- begin block -->
+<h3>Jobs</h3>  
+<div class='panel'>
+  
+
+<p>
+When the user clicks on the nav button, the session stores the index of
+the job that was selected. To extract the name of the company, use 
+Meteor.user().jobs[Session.get("job")].companyName
+</p>
+
+</div>
+<!-- end block -->
+
+<!-- begin block -->
+  
+<h3>Super admin</h3>  
+
+<div class='panel'>
+  
+<p>
+  To set a user like a super admin,
+  set serabey_sauserid with userId in settings.
+  
+</p>
+</div>
+
+<!-- end block -->
+<!-- begin block -->
+  
+<h3>DECS</h3>  
+
+<div class='panel'>
+  
+<p>
+  Create a helper that returns this object:
+  {
+    mode: 'customer',
+    params: 'show-details',
+    index: CustomersIndex,
+    selectedCompanyId: companyId,
+    selectedCompany(id) {the DECS returns the selectedCompanyId in id}
+  }
+
+  
+</p>
+</div>
+
+<!-- end block -->
+<!-- begin block -->
+  
+<h3>Lang</h3>  
+
+<div class='panel'>
+  
+<p>
+Numeral is to be found at startup/client/useraccounts-configuration.js
+T9n is what AT uses to translate templates
+i18n files are at i18n/es.i18n.JSON
+
+
+  
+</p>
+</div>
+
+<!-- end block -->
+<!-- begin block -->
+  
+<h3>Counters</h3>  
+
+<div class='panel'>
+  
+<p>
+Counters is an object created on Company insertion. I holds information on prefixes (strings) and numbers (integers) for every type of document.
+To edit from the commandline 
+<strong>Companies.update({_id:'ey4Pu3Qs6JxyrbdX3'},{$set:{['counters.deliveryNoteNumber']:475}})</strong>.
+
+There are 2 methods for getting a number for a new document: getNumber and getNumberWithPrefix. It depends on wether the document uses prefixes.
+
+
+  
+</p>
+</div>
+
+<!-- end block -->
+
+
+
+    
+  </div>
+  </div>
+  
+  
+</template>
+
+
+

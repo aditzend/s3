@@ -1,0 +1,15 @@
+
+<template name="Orders_show_page">
+  {{#pageTitle title=(_ "Orders")}}
+  <!-- <h3>Orders</h3> -->
+  {{#each order in orders}}
+  <!-- <button class='btn btn-default btn-sm js-show-order' id="{{order._id}}"> -->
+  <a class='btn btn-default btn-xs' href="{{pathForOrder order._id}}">
+    <h3 class="text-info">{{order.destinyName}}</h3>
+    <i class="fa fa-clock-o"></i> {{timeFromOrderCreation order.createdAt}} {{_ "by"}} {{order.authorName}}
+    
+  </a>
+    <!-- </button> -->
+  {{/each}}
+  {{/pageTitle}}
+</template>

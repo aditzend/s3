@@ -1,0 +1,102 @@
+<template name="Deliveries_panel">
+  {{#panel title=(_ "Deliveries") built=true}}
+    <!-- <div class='panel panel-default'> -->
+      <!-- <div class='panel-body'> -->
+        {{#if creatingDelivery}}
+          <h3>{{_ "Delivery"}}: {{editingDelivery.number}}</h3> 
+          {{#each detail in editingDelivery.details}} 
+            <p>{{detail.amount}} <strong>{{detail.itemName}}</strong></p>
+            <p class='text-muted'>({{detail.packaging}})</p>
+            <hr>
+          {{/each}}
+          <button class='btn btn-success js-confirm-delivery'>{{_ "Save"}}</button>
+          {{#each product in order.soldProducts}}
+            <div class='panel panel-default'>
+              <div class='panel-body'>
+                <h3 class='text-info'>{{product.itemName}} </h3>
+                <span class='text-muted'> <strong>{{_ "Required"}}</strong> :  {{formatAsNumber product.amount}} </span>
+                <!-- <span class='text-muted'> <strong>{{_ "Delivered"}}</strong> :  {{sumAllDeliveries product.deliveries}} </span> -->
+                <!-- <span class='text-muted'> <strong>{{_ "Remaining"}}</strong> :  {{remainingDeliveries product.amount product.deliveries}} </span> -->
+                <form class="js-add-item-to-delivery-form" id='{{product.item}}' name='{{product.itemName}}'>
+                  <div class='row'>
+                    <div class='col col-xs-5 col-sm-5 col-lg-5'>
+                      <div class='form-group'>
+                        <label for="amount">{{_ "Amount"}}</label>
+                        <input type='number' name='amount' class='form-control' >
+                      </div> 
+                    </div>
+                    <div class='col col-xs-7 col-sm-7 col-lg-7'>
+                      <div class='form-group'>
+                        <label for="packaging">{{_ "Packaging"}}</label>
+                        <input type='text' name='packaging' class='form-control' >
+                      </div> 
+                    </div>
+                    <button type='submit' id="{{product.item}}" class='btn btn-success '>{{_ "Add"}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          {{/each}}
+        {{else}}
+        <div class='wrapper'>
+          <button class='btn btn-success js-create-delivery'>{{_ "New delivery"}}</button>
+        </div>
+          <br>
+          {{#each deliveryNote in deliveryNotes}}
+            <div class='panel panel-default'>
+              <div class='panel-body'>
+                <div class='pull-right'>
+                  {{#if deliveryNote.invoiced}}
+                    <label class='label label-success'>{{ _ "INVOICED"}} {{timeFromCreation deliveryNote.invoiced.createdAt}}</label>
+                  {{else}}
+                    <label class='label label-danger'>{{_ "NOT INVOICED"}}</label>
+                  {{/if}}
+                </div>
+                <ul>
+                  {{#each detail in deliveryNote.details}}
+                    <li>{{detail.amount}} {{detail.itemName}}</li>
+                  {{/each}}
+                </ul>
+                <i class='fa fa-clock-o'></i> {{timeFromCreation deliveryNote.createdAt}}
+                <a target="_blank" href="{{pathForShowDeliveryNote deliveryNote._id}}" class='btn btn-default'>{{deliveryNote.number}}</a>
+              </div>
+            </div>  
+          {{/each}}
+        {{/if}}
+      <!-- </div> -->
+    <!-- </div> -->
+    
+  {{/panel}}
+</template>
+  <!-- {{#each product in order.soldProducts}}
+<div class='panel panel-default'>
+  <div class='panel-heading'>
+    <h3 class='panel-title'>
+{{product.itemName}}
+</h3>
+</div>
+<div class='panel-body'>
+
+  
+  <button class='btn btn-default btn-sm'> {{_ "Delivery"}} {{plusOne @index}}</button> 
+    {{#each delivery in product.deliveries}}
+  
+      {{#if delivery.invoiced}}
+      <label class='label label-success'>{{_ "Invoiced"}}</label>
+      {{else}}
+    <label class='label label-default'>{{_ "Not invoiced"}}</label>
+  {{/if}}
+  {{delivery.amount}} un  ({{delivery.packaging}})
+     <i class='fa fa-clock-o'></i> {{timeFromCreation delivery.createdAt}}
+     <hr>
+    {{/each}}
+  </div> 
+  
+<div class='table-footer'>
+    <span class='text-muted'> <strong>{{_ "Remaining"}}</strong> :  {{remainingDeliveries product.amount product.deliveries}} </span> 
+    
+  </div>
+  </div> 
+  {{/each}}-->
+
+

@@ -1,0 +1,23 @@
+<template name="Rel_vendor_show">
+  <div class=" {{#if showingOptionButtons}}js-hide-option-buttons{{else}}js-show-option-buttons{{/if}}">
+  
+  {{#if showingOptionButtons}}
+  
+  <div class="pull-right">
+    <button class="js-edit btn btn-xs btn-default">
+    <i class='fa fa-pencil'></i>
+    Editar
+    </button>
+  </div>
+  {{/if}}
+                    <p>{{rel.notes}}</p>
+                    <p>
+                    {{#if rel.paymentDays}}
+                          <i class='fa fa-money'></i>
+                      {{/if}}
+                      {{rel.paymentDays}}
+                      {{rel.paymentTerms}}
+                      {{rel.paymentNotes}}
+                          </p>
+                            </div>
+</template>

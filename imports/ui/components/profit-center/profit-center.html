@@ -1,0 +1,18 @@
+<template name="ProfitCenter">
+  {{#panel title="Centros de Beneficio" built=true}}
+  <h3>Crear Centro de Beneficio</h3>
+  
+  <form class='form'>
+    <div class='form-group'>
+      <input type="text" name="pc" >
+      
+    </div>
+    <button type='submit' class='btn btn-success'>Crear</button>
+    
+  </form>
+  
+  {{#each pc in pcs}}
+  {{pc.name}} | 
+  {{/each}}
+  {{/panel}}
+</template>

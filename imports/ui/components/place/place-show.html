@@ -1,0 +1,36 @@
+<template name="Place_show">
+  <div class=" {{#if showingOptionButtons}}js-hide-option-buttons{{else}}js-show-option-buttons{{/if}}">
+  
+      <p class='text-right'>
+        {{#if showingOptionButtons}}
+        <button class='btn btn-sm btn-default js-edit'><i class='fa fa-pencil'> </i> Editar</button>
+        <button class='btn btn-sm btn-default js-delete'><i class='fa fa-trash'> </i> Eliminar</button>
+        {{#if expanded}}<button class='btn btn-sm btn-default js-compress'><i class='fa fa-compress'> </i> Ver menos</button>
+      {{else}}
+      <button class='btn btn-sm btn-default js-expand'><i class='fa fa-expand'> </i> Ver m&aacute;s</button>
+      {{/if}}
+    {{/if}}
+    </p>
+        <h3 class='text-info'>  {{{convertPlaceTypeOption place.placeType}}}</h3>
+              <div class='row'>
+                <div class='col-xs-8 col-md-8 col-lg-8'>
+                  <i class='text-muted fa fa-map-marker'></i>
+                  {{place.route}}
+                  {{place.street_number}},
+                  {{place.locality}}
+                </div>
+                <div class='col-xs-4 col-md-4 col-lg-4'>
+                  {{#if place.phone}}
+                    <a class='btn btn-lg btn-primary' data-action='phone' href='tel:{{place.phone}}'>
+                      <i class="fa fa-phone"></i>
+                    </a>
+                  {{/if}}
+                </div>
+              </div>
+            <div class='row'>
+              <div class='col-xs-8 col-md-8 col-lg-8'>
+                  {{place.notes}}
+              </div>
+            </div>
+  </div>
+</template>

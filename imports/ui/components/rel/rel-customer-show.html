@@ -1,0 +1,77 @@
+<template name="Rel_customer_show">
+  <div 
+    class=" 
+      {{#if showingOptionButtons}}
+        js-hide-option-buttons
+      {{else}}
+        js-show-option-buttons
+      {{/if}}
+    "
+  >
+  {{#if showingOptionButtons}}
+    <div class="pull-right">
+      <button class="js-edit btn btn-xs btn-default">
+      <i class='fa fa-pencil'></i>
+      {{_ "Edit"}}
+      </button>
+    </div>
+  {{/if}}
+  <p class='text-muted pull-left'>
+    <h3>{{rel.category}}</h3>
+  </p>
+  <h5>{{rel.notes}}</h5>  
+    <div class="pull-right">
+      <p class='text-muted '>
+        <small>
+          {{#if rel.paymentDays}}
+            <!-- <i class='fa fa-money'></i> -->
+            {{_ "Payment condition is"}} {{rel.paymentDays}} {{_ "days"}}
+          {{/if}}
+        </small>
+      </p>
+      <p class='text-muted '>
+        <small>
+          {{#if rel.paymentMethod}}
+            <!-- <i class='fa fa-money'></i> -->
+            {{_ "Payment method is"}} {{rel.paymentMethodName}} 
+          {{/if}}
+        </small>
+      </p>
+      <p class='text-muted '>
+        <small>
+      {{#if rel.paymentTerms}}
+            <!-- <i class='fa fa-money'></i> -->
+            {{_ "Pays with"}} {{rel.paymentTerms}}
+            
+        {{/if}}
+      </small>
+            </p>
+      <p class='text-muted '>
+        <small>
+      {{#if rel.paymentNotes}}
+            <!-- <i class='fa fa-money'></i> -->
+            {{rel.paymentNotes}}
+            
+        {{/if}}
+      </small>
+            </p>
+    </div>
+
+        
+          <p class='text-muted'>
+           {{#if risk rel.payerBehavior "1"}}
+                {{_ "This customer has a good paying behavior."}}
+           {{else}}
+              {{#if risk rel.payerBehavior "2"}}
+                              {{_ "Be careful, this customer has some problems with payments"}}
+"}}
+                           {{else}}
+                           <p>
+                             <i class="fa fa-exclamation-triangle" style='color:red'></i> {{_ "This customer does not pay well"}}
+                             
+                           </p>
+                            {{/if}}
+                            {{/if}}
+                          </p>
+                            </div>
+</template>

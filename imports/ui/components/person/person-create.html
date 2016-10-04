@@ -1,0 +1,155 @@
+<template name="Person_create">
+  <div>
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="hpanel">
+                  <div class="panel-body">
+                      <h3>Crear perfil</h3>
+                      <p></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-lg-5">
+            
+              {{#panel title="INFORMACION DE CONTACTO"}}
+                  <form class="form-horizontal" data-action='form'>
+                    
+                      <div class="form-group">
+
+                          <label class="control-label" for='name'>Nombre</label>
+                          
+                            <input id='nameInput'   data-action='nameInput' name='name' type="text" class="form-control">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      
+                      
+                      
+                      <div class="form-group">
+                        <label class="control-label">Segundo Nombre</label>
+
+                          
+                            <input id='middleNameInput'  name='middleName' data-action='middleNameInput' type="text" class="form-control">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label">Apellido</label>
+                            <input id='lastNameInput'  data-action='lastNameInput' name='lastName' type="text" class="form-control">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                    
+                    <!--   <div class="form-group"><label class="col-sm-2 control-label">Tratamiento</label>
+                      
+                    
+                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Ejemplos: 'Sr.Gonzalez', 'Dra. Gimenez', 'Marcos' "></div>
+                    </div> -->
+                        
+                      <div class='text-center'><label> <input type="radio" checked="" value="1" id="optionsRadios1"
+                                              name="optionsRadios"> <i class="fa fa-male"></i> Hombre    </label> <label> <input type="radio" value="option2" id="optionsRadios2"
+                                                                      name="optionsRadios"> <i class="fa fa-female"></i> Mujer </label></div>
+                    
+                      <div class="hr-line-dashed"></div>
+                      
+                      <div class="text-center">
+                        Fecha de Nacimiento
+                      </div>
+                      <br>
+                      <div class='row'>
+                        <div class="text-center form-group col-xs-4 col-sm-4 col-md-4 col-lg-4"><label class=" control-label">D&iacute;a</label>
+
+                              <select id='bDayInput' data-action='bDayInput' name='bDay' type='text' class="form-control m-b">
+                              </select>
+                              <span class='form-control-feedback'></span>
+                              <span class='help-block'></span>
+                        </div>
+                        <div class="text-center form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 "><label class="control-label">Mes</label>
+
+                              <select id='bMonthInput' data-action='bMonthInput' name='bMonth' type='text' class="form-control m-b">
+                              </select>
+                              <span class='form-control-feedback'></span>
+                              <span class='help-block'></span>
+                        </div>
+                        <div class="text-center form-group col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                          <label class=" control-label">A&ntilde;o</label>
+
+                              <select id='bYearInput' data-action='bYearInput' name='bYear' type='text' class="form-control m-b ">
+                              </select>
+                              <span class='form-control-feedback'></span>
+                              <span class='help-block'></span>
+                        </div>
+                      </div>
+                      
+                      
+                      <div class="hr-line-dashed"></div>
+                      
+                      <div class="form-group"><label class="col-sm-2 control-label">DNI</label>
+
+                                <!--   <div class="input-group-btn">
+                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                            type="button">Tipo <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">DNI</a></li>
+                                        <li><a href="">CUIT</a></li>
+                                        <li><a href="">CUIL</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="">Pasaporte</a></li>
+                                        
+                                    </ul>
+                                </div> -->
+                                  <input id='finInput' type="number" class="form-control" name="fin" placeholder=" Sin espacios ni puntos">
+                                  <span class='form-control-feedback'></span>
+                                  <span class='help-block'></span>
+                            
+                      </div>
+                      <div class="form-group"><label class="col-sm-2 control-label">Email</label>
+
+                            <input id='emailInput' data-action='emailInput' name='email' type="text" class="form-control">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      <div class="hr-line-dashed"></div>
+                      <div class="text-center">
+                        Telefonos
+                        <span class='text-muted'>Si no son de Argentina, colocar el c&oacute;digo de pa&iacute;s, p. Ej. : Para Brasil ' + 55 '</span>
+                      </div>
+                      <div class="form-group"><label class="col-sm-2 control-label">Celular</label>
+
+                            <input id='mobileInput' data-action='mobileInput' name='mobile' type="text" class="form-control"  placeholder=" Tipo '11-6013-1234' ">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      <div class="form-group"><label class="col-sm-2 control-label">Tel&eacute;fono de l&iacute;nea</label>
+
+                            <input id='phoneInput' data-action='phoneInput' name='phone' type="text" class="form-control"  placeholder=" Tipo '02323-471-691' ">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Interno</label>
+                            <input id='internalPhoneInput' data-action='internalPhoneInput' name='internalPhone' type="number" class="form-control"  placeholder=" Tipo '3120' ">
+                          <span class='form-control-feedback'></span>
+                          <span class='help-block'></span>
+                      </div>
+                      <div class="hr-line-dashed"></div>
+                      
+                      <div class="hr-line-dashed"></div>
+                      <div class="form-group">
+                          <div class="col-sm-8 col-sm-offset-2">
+                              <button class="btn btn-default" type="cancel">Cancelar</button>
+                              <button class="btn btn-success" type="submit">Guardar</button>
+                          </div>
+                      </div>
+                  </form>
+              {{/panel}}
+          </div>
+      
+      </div>
+
+  </div>
+</template>

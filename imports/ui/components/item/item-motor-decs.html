@@ -1,0 +1,39 @@
+<template name="Item_motor_DECS">
+    {{#if selectedItem}}
+    <div class="list-item">
+    <div class="">
+      <button class="js-deselect-item btn btn-primary">
+      <i class='fa fa-arrow-left'></i>
+        {{_ "Back to search"}}
+      </button>
+    </div>
+  </div>
+    <hr>
+        {{#if editingItem}}
+          {{> Item_motor_edit (editItemArgs selectedItem)}}
+        {{else}}
+    
+          <!-- {{> Item_show showthis}} -->
+          {{> Item_motor_show (showItemArgs selectedItem)}}
+          <a href="{{pathFor 'printLabels' paramsLabel}}">print labels</a>
+        {{/if}}
+      <hr>
+
+
+      <hr>
+
+    
+  
+      
+    {{else}} <!-- //selectedItem -->
+      {{#if creatingItem}}
+        {{> Item_motor_edit createItemArgs }}
+      
+      {{else}}
+          <h3>{{_ "Select"}} {{_ "product"}}</h3>
+          {{> Item_search searchItemArgs }}
+
+      
+      {{/if}}
+    {{/if}} <!-- //selectedItem -->
+</template>

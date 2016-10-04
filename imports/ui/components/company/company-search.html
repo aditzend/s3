@@ -1,0 +1,11 @@
+<template name="Company_search">
+  {{> EasySearch.Input index=company_searchIndex attributes=company_searchIndexAttributes noDocumentsOnEmpty='true' }}
+  {{#EasySearch.Each index=company_searchIndex }}
+    <button class='js-search-result-item btn btn-default' id={{_id}}>{{name}}</button>
+  {{/EasySearch.Each}}
+  {{#EasySearch.IfNoResults index=company_searchIndex}}
+  {{_ "Nothing found"}}
+  <hr>
+  <button class='js-create-company btn btn-success'>{{_ "Create"}} {{insertedText}}</button>
+  {{/EasySearch.IfNoResults}}
+</template>

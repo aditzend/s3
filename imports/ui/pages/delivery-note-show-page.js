@@ -1,0 +1,1 @@
+import './delivery-note-show-page.html';

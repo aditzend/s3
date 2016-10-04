@@ -1,0 +1,14 @@
+<template name="Create_admin_page">
+  <div class='wrapper'>
+    <h3>Create admin</h3>
+    
+    <h4>{{companyName}}</h4>
+    <button class="js-create-admin">Make this user company admin</button>
+    <p>
+      {{finType}} : {{fin}}
+    </p>
+    <!-- {{> Company_DECS companyArgs}} -->
+    {{> Company_search companyArgs}}
+  </div>
+  
+</template>

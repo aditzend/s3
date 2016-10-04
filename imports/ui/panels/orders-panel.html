@@ -1,0 +1,22 @@
+<template name="Orders_panel">
+  {{#panel title=(_ "Orders") panelClass="stats" color="hyellow"}}
+  <div class="pull-right">
+      <a href="{{pathForOrders}}" class='btn btn-primary'><i class="fa fa-search"></i> {{_ "Search orders"}}</a>
+      <button class='btn btn-success js-new-order'><i class="fa fa-plus-circle"></i> {{_ "New order"}}</button>
+    
+  </div>
+  <h6>{{_ "Last orders"}}</h6>
+
+    {{#each order in orders}}
+    <!-- <button class='btn btn-default btn-sm js-show-order' id="{{order._id}}"> -->
+    <a class='btn btn-default btn-xs' href="{{pathForOrder order._id}}">
+      <h6 class="text-info">{{order.destinyName}}</h6>
+      <i class="fa fa-clock-o"></i> {{timeFromOrderCreation order.createdAt}} {{_ "by"}} {{order.authorName}}
+      
+    </a>
+      <!-- </button> -->
+    {{/each}}
+    
+  
+{{/panel}}
+</template>

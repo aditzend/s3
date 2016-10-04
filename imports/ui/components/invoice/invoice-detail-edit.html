@@ -1,0 +1,44 @@
+<template name="Invoice_detail_edit">
+  {{#if saved}}
+    <h3>saved</h3>
+    <span class='btn btn-sm btn-default js-edit-detail'>{{_ "Edit"}}</span>
+  {{else}}
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        {{detail.amount}} || {{detail.itemName}}
+      </div>
+      <div class='panel-body'>
+        <form class='form-inline' 
+        item-id='{{detail.itemId}}' delivery-note-id='{{delivery._id}}' 
+        >
+          <div class='form-group'>
+            <div class='input-group'>
+              <div class='input-group-addon'>
+                $
+              </div>
+              <input type='number' class='form-control' name='price' placeholder="{{_ "Price"}}"> 
+            </div>
+          </div>
+          <div class='form-group'>
+            <div class='input-group'>
+              <input type='number' class='form-control' name='discount' placeholder="{{_ "Discount"}}"> 
+              <div class='input-group-addon'>
+                %
+              </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <div class='input-group'>
+              <input type='number' class='form-control' name='taxes' placeholder="{{_ "Taxes"}}"> 
+              <div class='input-group-addon'>
+                %
+              </div>
+            </div>
+          </div>
+          <button type='submit' class='btn btn-primary'>{{_ "Add to invoice"}}</button>
+        </form>
+        </div>
+      </div>
+    {{/if}}
+  
+</template>

@@ -1,0 +1,61 @@
+
+
+<template name="Treasury_show_page">
+<!-- {{#if Templates.subscriptionsReady}} -->
+    <!-- {{#staggering}} -->
+
+        <div class="">
+          
+
+
+            {{#pageTitle title=(_ "Treasury")}}
+            <!-- <h2> 
+              {{#if companyLogo workfor}}
+              <img src="{{companyLogo workfor}}" alt="" />
+              {{else}}
+              {{companyName workfor}}
+              {{/if}}
+             </h2> -->
+
+            {{/pageTitle}}
+      
+
+
+
+
+            <div class="row">
+        <!--         <div class="col-lg-3">
+        
+            {{#panel footer="Estado de Genericos"}}
+        
+            {{> Generics_show}}
+        
+            {{/panel}}
+        
+        </div>
+        <div class="col-lg-3">
+        
+            {{#panel footer="This is standard panel footer" panelClass="stats"}}
+        
+              {{> Birthday_widget}}
+            {{/panel}}
+        
+        </div> -->
+
+                <div class="col-lg-4">
+                    {{> Receivables_panel}}
+                </div>
+                <div class="col-lg-4">
+                    {{> Payables_panel}}
+                </div>
+                <div class="col-lg-4">
+                    {{> CashAssets_panel}}
+                </div>
+            </div>
+          
+        </div>
+    <!-- {{/staggering}} -->
+    <!-- {{else}}
+    {{_ "Loading"}}
+    {{/if}} -->
+</template>

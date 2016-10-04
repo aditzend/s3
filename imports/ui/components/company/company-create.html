@@ -1,0 +1,66 @@
+ <template name="Company_create">
+   
+
+   
+   {{#panel title="Nueva empresa"}}
+   
+        <form data-action='form' class="form-horizontal">
+          <div class='row'>
+   
+          <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <div class="form-group">
+              <label class="control-label" for="name">Nombre</label>
+              <input class="form-control" data-action="nameInput" id="nameInput" name="name" type="text" placeholder='{{_ "Short name"}} {{_ 'or'}} {{_ 'Brand name'}}'>
+              <span class="form-control-feedback"></span>
+              <span class="help-block"></span>
+            </div>
+          </div>
+          <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+            <div class="form-group">
+              <label class="control-label" for="formalName">Raz&oacute;n social</label>
+              <input class="form-control" data-action="formalNameInput" id="formalNameInput" name="formalName" type="text">
+              <span class="form-control-feedback"></span>
+              <span class="help-block"></span>
+            </div>
+          </div>
+          <div class='col-xs-12 col-lg-12'>
+              <div class="form-group">
+                <label class="control-label" for="country">De qu&eacute; pa&iacute;s es la empresa?</label>
+                <select data-action='country' id='countryInput' class='form-control'>
+                  <option value ="Argentina" selected>Argentina</option>
+                  <option value ="Brazil" >Brasil</option>
+                  <option value ="Chile" >Chile</option>
+                  <option value ="Uruguay" >Uruguay</option>
+                  <option value ="Paraguay" >Paraguay</option>
+                  {{#each countries}}
+                    <option value="{{name}}">{{name}}</option>
+                  {{/each}}
+                </select>
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+          </div>
+          <div class='col-xs-12 col-lg-12'>
+            <div class="form-group">
+              <label class="control-label" for="cuit">CUIT</label>
+              <input class="form-control" data-action="cuitInput" id="cuitInput" name="cuit" type="number">
+              <span class="form-control-feedback"></span>
+              <span class="help-block"></span>
+            </div>
+          </div>
+   
+      </div>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+          <span class="js-cancel btn btn-default" type="submit">Cancelar</span>
+   
+        <button class="js-create btn btn-success" type="submit">Crear</button>
+      </div>
+    </div>
+   
+        </form>
+        {{/panel}}
+        
+
+  
+</template>

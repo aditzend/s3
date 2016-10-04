@@ -1,0 +1,90 @@
+
+
+<template name="Dashboard">
+
+    <!-- {{#staggering}} -->
+
+        <div class="wrapper">
+
+
+
+            {{#pageTitle title="Panel de Control Principal"}}
+            <h2>
+              {{#if workingFor.logo}}
+              <img src="{{workingFor.logo}}" alt="" />
+              {{else}}
+              {{workingFor.name}}
+              {{/if}}
+             </h2>
+
+            {{/pageTitle}}
+
+
+
+
+
+            <div class="row">
+
+              <div class='col col-lg-2'>
+
+                <!-- <a class="btn btn-success" href={{pathFor 'printLabels'}}>
+                  <span class='text-big'>{{_ "Print labels"}}</span></a> -->
+                <!-- <a class="btn btn-success" href={{pathForCreateOrder}}>{{_ "New order"}}</a> -->
+                <!-- <a class="btn btn-success" href={{pathForCreateExpense}}>{{_ "New expense"}}</a> -->
+                <!-- <a class="btn btn-default" href={{pathForShowTreasury}}>{{_ "Treasury"}}</a> -->
+              </div>
+
+
+
+
+        <!--         <div class="col-lg-3">
+
+            {{#panel footer="Estado de Genericos"}}
+
+            {{> Generics_show}}
+
+            {{/panel}}
+
+        </div>
+        <div class="col-lg-3">
+
+            {{#panel footer="This is standard panel footer" panelClass="stats"}}
+
+              {{> Birthday_widget}}
+            {{/panel}}
+
+        </div> -->
+
+                <div class="col-lg-4">
+                    <!-- {{> Customers_panel}} -->
+                </div>
+                <!-- <div class="col-lg-4">
+                    {{> Vendors_panel}}
+                </div> -->
+                <div class="col-lg-4">
+                  <!-- {{> Items_motors_panel}} -->
+                    {{> Orders_panel}}
+                </div>
+                <!-- <div class="col-lg-4">
+                    {{> Items_panel}}
+                </div> -->
+                <div class="col-lg-4">
+                  {{> SalesPerformance_panel}}
+                  {{> Cash_flow_panel}}
+
+                </div>
+                <div class="col-lg-4">
+                  {{#if isCompanyAdmin}}
+
+                    {{> ProfitCenter}}
+                    {{> CostCenter}}
+                    {{> PaymentMethodsPanel}}
+                    {{> ValidateWorkerRels}}
+                  {{/if}}
+
+                </div>
+            </div>
+
+        </div>
+    <!-- {{/staggering}} -->
+</template>

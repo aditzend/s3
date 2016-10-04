@@ -1,0 +1,86 @@
+<template name="Rel_customer_edit">
+  <div class="panel panel-default appear-first">
+    <div class="panel-heading">{{_ "Relationship with this customer"}}</div>
+    <div class="panel-body">
+        <form data-action='form'>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class="form-group">
+                <label class="control-label" for="notes">{{ _ 'Notes'}}</label>
+                <input class="form-control" data-action="notesInput" id="notesInput" name="notes" type="text-area">
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-3'>
+              <div class="form-group">
+                <label class="control-label" for="category">{{_ "Category"}}</label>
+                <select class='form-control' id="category" name="category">
+                  <option value="A"> A </option>
+                  <option value="B"> B </option>
+                  <option value="C"> C </option>
+                </select>
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-3'>
+              <div class="form-group">
+                <label class="control-label" for="payerBehavior">{{_ "Payer risk"}}</label>
+                <select class='form-control' id="payerBehavior" name="payerBehavior">
+                  <option value="1"> {{_ 'Low'}} </option>
+                  <option value="2"> {{_ 'Medium'}} </option>
+                  <option value="3"> {{_ 'High'}} </option>
+                </select>
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-3'>
+              <div class="form-group">
+                <label class="control-label" for="paymentDays">{{_ "Negotiated payment condition"}}</label>
+                <input class="form-control" id="paymentDays" name="paymentDays" type="number">
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class="form-group">
+                <label class="control-label" for="paymentMethod">{{_ "Payment method"}}</label>
+                {{> PaymentMethodsPanel paymentMethodsArgs}}
+            </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class="form-group">
+                <label class="control-label" for="paymentNotes">{{_ 'Payment notes'}}</label>
+                <input class="form-control" id="paymentNotes" name="paymentNotes" type="text">
+                <span class="form-control-feedback"></span>
+                <span class="help-block"></span>
+              </div>
+            </div>
+          </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <span class="js-rel-customer-edit-cancel btn btn-default" type="submit">{{_ "Cancel"}}</span>
+          
+        <button class="btn btn-success" type="submit">{{_ "Save"}}</button>
+      </div>
+    </div>
+
+        </form>
+
+    </div>
+  </div>
+<!--{{> quickForm collection="Rels" id='insertRelationshipForm' type='insert'}}-->
+</template>

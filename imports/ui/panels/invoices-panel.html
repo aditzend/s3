@@ -1,0 +1,31 @@
+<template name="Invoices_panel">
+  <!-- Invoices_panel here! -->
+  {{#panel title=(_ "Invoices") built=true}}
+    {{#if creatingInvoice}}
+      {{> Invoice_edit (createInvoiceArgs order)}}
+    {{else}}
+      <div class='wrapper'>
+        <button class='btn btn-success js-create-invoice'>{{_ "New invoice"}}</button>
+      </div>
+      {{#each invoice in invoices}}
+      <div class='panel panel-default'>
+        <div class='panel-body'>
+          <div class='pull-right'>
+            {{#if invoice.paid}}
+              <label class='label label-success'>{{ _ "PAID"}} {{timeFromCreation deliveryNote.invoiced.createdAt}}</label>
+            {{else}}
+              <label class='label label-danger'>{{_ "NOT PAID"}}</label>
+              <h3>{{timeForPayment deliveryNote.invoiced.createdAt order.paymentDays order.paymentMethodDays}}</h3>
+              <!-- <h3>{{timeForPayment deliveryNote.invoiced.createdAt 90 30}}</h3> -->
+            {{/if}}
+          </div>
+    
+          
+          <i class='fa fa-clock-o'></i> {{timeFromCreation invoice.createdAt}}
+          <a target="_blank" href="{{pathForShowInvoice invoice._id}}" class='btn btn-default'>{{invoice.number}}</a>
+        </div>
+      </div>
+      {{/each}}
+    {{/if}}
+  {{/panel}}
+</template>

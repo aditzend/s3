@@ -1,0 +1,16 @@
+<template name="Invoice_show_page">
+  <h3>Show invoice page</h3>
+  {{#with invoice}}
+  <h1>number {{number}}</h1>
+  <h1>type {{order}}</h1>
+  <h1>pos {{pos}}</h1>
+  {{#each detail in details}}
+    {{detail.amount}}
+    {{detail.itemName}}
+    {{detail.price}}
+    {{detail.discount}}
+    {{detail.taxes}}
+  {{/each}}
+  {{/with}}
+
+</template>

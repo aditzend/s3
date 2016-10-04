@@ -1,0 +1,215 @@
+<template name="Order_new_page">
+    {{#if Template.subscriptionsReady}}
+        {{#staggering}}
+            <div class='wrapper'>
+                <div class='row'>
+                    {{#pageTitle title=(_ "Order")}}
+                        <!-- <h2> 
+    {{#if companyLogo workfor}}
+    <img src="{{companyLogo workfor}}" alt="" />
+    {{else}}
+    {{companyName workfor}}
+    {{/if}}
+   </h2> -->  
+   <div class='text-center'>
+     <h6><i class='fa fa-clock-o'></i> {{order.timeFromOrderCreation}} {{_ "by"}} {{order.authorName}} {{order.authorLastName}}</h6>
+   </div>
+   <div class='pull-right'>
+     {{#if uploadingFile}}
+     <div class="input-group input-group-lg">
+      <input type="text" id="uploadingFileInput" class="form-control" placeholder="{{_ "'Order', 'Specs'"}}">
+      <span class="input-group-btn">
+        <button class="btn btn-success js-upload-file" type="button">   <i class="fa fa-cloud-upload"></i>   </button>
+        <button class="btn btn-danger js-cancel-upload-file" type="button">   <i class="fa fa-times"></i>   </button>
+      </span>
+    </div><!-- /input-group -->
+    
+    
+
+     
+     {{else}}
+     <button class="btn btn-primary js-goto-upload-file"><i class="fa fa-cloud-upload"></i> {{_ "Upload file"}}</button>
+  {{/if}}
+   </div>
+  
+  <div class="text-center">
+    {{#each file in order.files}}
+    <a href='{{file.url}}' target="_blank" class='btn btn-default'>{{file.name}}</a>
+    
+    {{/each}}
+    <!-- {{files}} -->
+  
+  </div>
+
+   
+                    {{/pageTitle}}
+                </div>
+                <div class='row'>
+                    <div class="col-xs-12 col-lg-4">
+                    
+                
+                        {{#if company}}
+                            <h6>{{_ "Selling to"}}:  </h6>
+                              <h3>{{companyName}}</h3>  
+                          
+                            <h6>{{_ "Payment days"}}:
+                                {{paymentDays}}
+                            </h6>
+                                    {{#if showCompanyDetails}}
+                                    
+                                        <button class='btn btn-default js-hide-company-details'>{{_ 'Hide details'}}</button>
+
+                                        {{#panel title=(_ "Customer details")}}
+                                            {{> Company_DECS customerArgs company}}
+                                        {{/panel}}
+                                    {{else}}
+                                        <button class='btn btn-default btn-sm js-show-company-details'>{{_ 'View details'}}</button>
+                                    {{/if}}
+                            <button class='btn btn-default btn-sm js-show-company-switch'>{{_ 'Switch'}}</button>
+                        {{else}}
+                      
+                            {{> Company_DECS customerArgs }}
+                        {{/if}}
+                    </div>
+                    <div class="col-xs-8 col-lg-2">
+                      <!-- {{#if dateDefined}}
+                      <br>
+                      <p><span class='text-default'>{{_ "Emission"}} : {{emissionDate}}</span></p>
+                      <p><span class='text-default'>{{_ "Due"}} : {{dueDate}}</span></p>
+                      {{/if}} -->
+
+                        <!-- <label for="emission-date">{{_ "Emission date"}}</label>
+                        <input id="emission-date" name='emission-date' type="text" class="date-picker form-control">
+
+                        <label for="due-date">{{_ "Due date"}}</label>
+                        <input id="due-date" type="text" name='due-date' class="date-picker form-control"> -->
+<!-- 
+                        <div class='row'>
+                            <div class="col-xs-12 ">
+                              {{#if invoiceType}}
+                                <span class="help-block small-font">{{_ "Invoice type"}} :
+                              <button class='btn btn-default js-edit-invoice-type'> {{invoiceType}}</button>   </span>
+                              {{else}}
+                                <select name='invoiceType' class="form-control js-invoice-type" >
+                                    <option value=''>{{_ "Select invoice type"}}</option>
+                                    <option value='A'>A</option>
+                                    <option value='B'>B</option>
+                                    <option value='C'>C</option>
+                                    <option value='M'>M</option>
+                                    <option value='E'>E</option>
+                                </select>
+                                {{/if}}
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        {{> Item_DECS productArgs}}
+
+                    </div>
+
+                </div>
+                <div class='row'>
+                    <div class='col-xs-12 col-lg-12'>
+
+                        <div class="table-responsive">
+                            <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>{{_ "Product"}}</th>
+                                        <th>{{_ "Amount"}}</th>
+                                        <th>{{_ "Price"}}</th>
+                                        <th>{{_ "Disc."}}</th>
+                                        <th>{{_ "Taxes"}}</th>
+                                        <th>{{_ "Total"}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#if sellingItemName}}
+                                        {{> TooDetailEdit product= sellingItemName}}
+                                    {{/if}}
+                                    {{#each detail in soldProducts}}
+
+                                        {{> TooDetailShow (showDetailArgs detail) }}
+                                        <tr></tr>
+
+                                    {{else}}
+
+                                        <tr>
+                                            <!-- {{_ "Add products"}} -->
+
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- <tfoot> -->
+                        <div class='row'>
+                            <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+                                <h3>{{amountTotal}}
+                                    un.</h3>
+                            </div>
+                            <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span>{{_ "Subtotal"}}</span>
+
+                                            </td>
+                                            <td>{{subtotal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>{{_ "Discount"}}</span>
+
+                                            </td>
+                                            <td>{{discount}}</td>
+                                        </tr>
+                                        <!-- <tr>
+                                        <td>
+                                            <span>{{_ "Subtotal w/ disc."}}</span>
+
+                                        </td>
+                                        <td>{{discountTotal}}</td>
+                                    </tr> -->
+                                        <tr>
+                                            <td>
+                                                <span>{{_ "Net total"}}</span>
+
+                                            </td>
+                                            <td>{{netTotal}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <span>{{_ "Taxes"}}</span>
+
+                                            </td>
+                                            <td>{{taxes}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h3>{{_ "Grand total"}}
+                                                    :
+                                                    {{grandTotal}}</h3>
+                                                    <button class='btn btn-success js-save-sale'>{{_ "Confirm sale"}}</button>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        {{/staggering}}
+    {{else}}
+        {{_ "Loading"}}
+    {{/if}}
+</template>

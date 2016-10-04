@@ -1,0 +1,18 @@
+<template name="CostCenter">
+  {{#panel title="Centros de Costo" built=true}}
+  <h3>Crear Centro de Costo</h3>
+  
+  <form class='form'>
+    <div class='form-group'>
+      <input type="text" name="cc" >
+      
+    </div>
+    <button type='submit' class='btn btn-success'>Crear</button>
+    
+  </form>
+  
+  {{#each cc in ccs}}
+{{cc.name}} |
+  {{/each}}
+  {{/panel}}
+</template>

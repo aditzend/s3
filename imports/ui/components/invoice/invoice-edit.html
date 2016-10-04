@@ -1,0 +1,151 @@
+<template name="Invoice_edit">
+  <form>
+    <div class='form-group'>
+      <label for="pos">{{_ "Point of sale"}}</label>
+      <input type="text" name="pos" value="{{invoice.pos}}" class='form-control' >
+    </div>
+    <!-- <div class='form-group'>
+      <label for="number">{{_ "Number"}}</label>
+      <input type="text" name="number" value="{{invoice.number}}" class='form-control' >
+    </div> -->
+    <div class='form-group'>
+      <label for="type">{{_ "Type"}}</label>
+      <input type="text" name="type" value="{{invoice.type}}" class='form-control' >
+    </div>
+    <table class='table table-responsive table-condensed table-striped'>
+      <tr>
+        <th>
+          {{_ "Am."}} 
+        </th>
+        <th>
+          {{_ "Name"}}
+        </th>
+        <th>
+          {{_ "Pr."}}
+        </th>
+        <th>
+          {{_ "Disc."}}
+        </th>
+        <th>
+          {{_ "Tax"}} 
+        </th>
+      </tr>
+    {{#each ii in invoiceItems}}
+      <tr>
+        <td>
+          {{ii.amount}}
+        </td>
+        <td>
+          {{ii.itemName}}
+        </td>
+        <td>
+          {{ii.price}}
+        </td>
+        <td>
+          {{ii.discount}}%
+        </td>
+        <td>
+          {{ii.taxes}}%
+        </td>
+      </tr>
+    {{/each}}
+        </table>
+        <h4>{{_ "Grand Total"}}: {{totals.grandTotal}}</h4>
+        <h4>{{_ "Taxes"}}: {{totals.taxes}}</h4>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      {{#each delivery in unInvoicedDeliveries}}
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="heading{{@index}}">
+            <h4 class="panel-title">
+              <button class='btn btn-default' role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{@index}}" aria-expanded="false" aria-controls="collapse{{@index}}">
+                {{delivery.number}}
+              </button>
+            </h4>
+          </div>
+          <div id="collapse{{@index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{@index}}">
+            <div class="panel-body">
+              {{#each detail in delivery.details}}
+                {{> Invoice_detail_edit (invoiceDetailArgs detail delivery._id)}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>  
+        
+  
+    
+    <div class='form-group'>
+      <button type='submit' class='btn btn-success'>{{_ "Save"}}</button>
+      <span class='btn btn-danger js-cancel'>{{_ "Cancel"}}</span>
+    </div>
+    
+  
+  </form>
+  
+</template>
+
+<!-- <button type='button' id='{{delivery._id}}' class='btn btn-primary js-toggle-delivery' data-toggle='button' aria-pressed='false' autocomplete='off'>
+  {{delivery.number}}
+</button> -->
+
+<!-- <div class='panel panel-default'>
+  <div class='panel-heading js-toggle-delivery' state='no-show'>
+    <h3 class='panel-title'>{{_ "Delivery note"}} : {{delivery.number}}</h3>
+  </div>
+  <div class='panel-body'>
+    {{#each detail in delivery.details}}
+      <div class='panel panel-default'>
+        <div class='panel-heading'>
+          {{detail.amount}} | {{detail.itemName}}
+        </div>
+        <div class='panel-body'>
+          <form class='form-inline' item-id='{{detail.itemId}}' delivery-note-id='{{delivery._id}}' index='{{@index}}' >
+            <div class='form-group'>
+              <div class='input-group-addon'>
+                $
+              </div>
+              <input type='number' class='form-control' name='price' placeholder="{{_ "Price"}}"> 
+            </div>
+            <div class='form-group'>
+              <input type='number' class='form-control' name='discount' placeholder="{{_ "Discount"}}"> 
+              <div class='input-group-addon'>
+                %
+              </div>
+            </div>
+            <div class='form-group'>
+              <input type='number' class='form-control' name='taxes' placeholder="{{_ "Taxes"}}"> 
+              <div class='input-group-addon'>
+                %
+              </div>
+            </div>
+            <button type='submit' class='btn btn-primary'>{{_ "Add to invoice"}}</button>
+          </form>
+          </div>
+                
+                
+                
+              </div>
+            </div>
+          {{/each}}
+        </div>
+       -->
+          
+            
+          
+        
+  
+  <!-- </div> -->
+    
+    <!-- {{#each detail in delivery.details}}
+    <div class='ckeckbox'>
+      <label>
+        <input type='checkbox'>
+        <span class='btn btn-default js-add-delivery-to-invoice'>
+          {{delivery.amount}} un : {{detail.itemName}} {{detail.itemDesc}}
+        </span>
+      </label>
+  
+  </div>
+      {{/each}} -->
+<!-- </div> -->

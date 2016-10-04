@@ -1,0 +1,58 @@
+<template name="Person_show">
+{{#if editing}}
+{{> Person_edit (personArgs person)}}
+{{else}}
+<div class='js-component col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+
+{{#panel title="Datos de contacto" bodyClass="list"}}
+
+                    <div class="pull-right">
+                      <button class='btn btn-xs btn-default js-edit'><i class='fa fa-pencil'>  </i>  Editar</button>
+                    </div>
+                <!--     <div class="panel-title">Last Activity</div>
+                <small class="fo">This is simple example</small> -->
+                    <div class="list-item-container">
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <span class="pull-right font-bold">{{#if person.isMale}} <i class="fa fa-male text-color"></i>{{else}}<i class="fa fa-female text-color"></i>{{/if}}</span>
+                            <h3 class="no-margins font-extra-bold text-primary ">{{person.name}}  {{person.lastName}}</h3>
+                          
+                          
+                        </div>
+                        {{#if person.bDay}}
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <h6 class="no-margins  text-primary "><i class='fa fa-birthday-cake'></i> {{formatDate person.bDay person.bMonth person.bYear}}</h6>
+                        </div>
+                        {{/if}}
+                        
+                        {{#if person.email}}
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <h6 class="no-margins  text-primary "><i class='fa fa-envelope-o'></i> {{person.email}}</h6>
+                        </div>
+                        {{/if}}
+                        {{#if person.phone}}
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <h6 class="no-margins  text-primary "><i class='fa fa-phone'></i> {{formatInternational person.phone}} int.: {{person.internalPhone}}</h6>
+                        </div>
+                        {{/if}}
+                        {{#if person.mobile}}
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <h6 class="no-margins  text-primary "><i class='fa fa-mobile'></i> {{formatInternational person.mobile}}   </h6>
+                        </div>
+                        {{/if}}
+                        {{#if person.fin}}
+                        <div class="list-item">
+                          <!-- <small>Nombre completo</small> -->
+                            <h6 class="no-margins  text-primary "><i class='fa fa-book'></i> {{person.fin}}</h6>
+                        </div>
+                        {{/if}}
+                    </div>
+
+                {{/panel}}
+              </div>
+{{/if}}
+</template>

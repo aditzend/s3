@@ -1,0 +1,49 @@
+<template name="ValidateWorkerRels">
+    
+      {{#panel title=(_ "Validate jobs") bodyClass="list" built=true}}
+      {{#if Template.subscriptionsReady}}
+            <!--   <div class="pull-right">
+                <button class='btn btn-xs btn-default js-edit'>
+                    <i class='fa fa-pencil'></i>
+                    Editar</button>
+            </div> -->
+        <div class="list-item-container">
+          {{#each job in jobs}}
+              <div class="list-item">
+                  <h3>{{name job.origin}}</h3> 
+                  {{#if editingWorkerRel job._id}}
+                  
+                  <input id='positionInput' type="text" name="some_name" value="{{job.position}}">
+                  <button id='{{job._id}}' class='btn btn-xs btn-success js-save-edited-position'>{{_ "Save"}}</button>
+                  <button class='btn btn-xs btn-danger js-cancel-edited-position'>{{_ "Cancel"}}</button>
+                  {{else}}
+                  
+                  <h3> <small>{{job.position}}</small> </h3> 
+                  <button id='{{job._id}}' class='btn btn-xs btn-default js-edit-worker-rel'>
+                      <i class='fa fa-pencil'></i> {{_ "Edit"}}
+                      </button>
+                  <button id='{{job._id}}' class='btn btn-xs btn-success js-validate-worker-rel'>
+                      <i class='fa fa-check'></i> {{_ "Validate"}}
+                      </button>
+                  <button id='{{job._id}}' class='btn btn-xs btn-danger js-reject-worker-rel'>
+                      <i class='fa fa-ban'></i> {{_ "Reject"}}
+                      </button>
+                      {{/if}}
+                      
+                  
+                  <!-- {{#if validated}}<label class='label label-success'><small>Validada</small></label>{{else}}<label class='label label-info'><small>Esperando validacion de la empresa</small></label>{{/if}} -->
+            <!--       <div class="pull-right">
+               <button class='btn btn-xs btn-default js-edit-worker-rel'>
+                   <i class='fa fa-pencil'></i>
+                   </button>
+                               </div> -->
+              </div>
+          {{/each}}
+        </div>
+          
+        
+        {{else}}
+        {{_ "Loading"}}
+        {{/if}}
+      {{/panel}}
+</template>

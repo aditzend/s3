@@ -1,0 +1,33 @@
+<template name="Birthday_widget">
+  <div class="hpanel">
+                  <div class="panel-body">
+                    <h6>Ultimos Creados</h6>
+                      <div class="table-responsive">
+                          <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Contacto</th>
+                                  <th>Fecha</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                {{#each bday}}
+                                <tr>
+                                  <td><a href='/show-{{actodeType}}/{{_id}}'>
+                                    {{name}} {{lastName}}</a>
+                                  </td>
+                                  <td>
+                                    <h4>Birthday_show</h4>
+                                  </td>
+
+                                </tr>
+                                {{/each}}
+
+
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+
+              </div>
+</template>

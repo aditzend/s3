@@ -1,0 +1,88 @@
+<template name="Person_show_work">
+  
+  <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+    {{#panel title="Datos de trabajo" bodyClass="list"}}
+    {{#if Template.subscriptionsReady}}
+          <!--   <div class="pull-right">
+              <button class='btn btn-xs btn-default js-edit'>
+                  <i class='fa fa-pencil'></i>
+                  Editar</button>
+          </div> -->
+      <div class="list-item-container">
+      
+        {{#if creatingWorkerRel}}
+          {{#if selectedCompany}}
+            <div class="list-item">
+              {{> Company_show (showCompanyArgs selectedCompany)}}
+            </div>
+
+            <div class="pull-right">
+                <button class="js-deselect-company btn btn-xs btn-default">
+                    <i class='fa fa-arrow-left'></i>
+                    {{_ "Back to search"}}</button>
+            </div>
+            
+            <div class="list-item">
+                {{> Rel_worker_edit (createWorkerRelArgs selectedCompany) }}
+            </div>
+          {{else}} <!-- //selectedCompany -->
+              <h3>{{_ "Select company"}}</h3>
+              {{> Company_search searchCompanyArgs }}
+          {{/if}} <!-- //selectedCompany -->
+                    
+
+          {{#if creatingCompany}}
+          creatingCompany
+            <div class="list-item">
+                <!-- <small>Nombre completo</small> -->
+                {{> Company_create createCompanyArgs }}
+            </div>
+
+          {{/if}} <!-- //creatingCompany -->
+          
+          <!-- {{#if selectedCompany}}
+            {{#if editingWorkRel}}
+                          <div class="list-item">
+                              {{> Rel_worker_edit (createWorkerRelArgs selectedCompany) }}
+                          </div>
+            {{else}}
+                          {{position selectedCompany}}
+            {{/if}} //editingWorkRel
+          {{/if}} //selectedCompany
+          
+           -->
+          
+        {{else}}<!--  //creatingWorkerRel -->
+        
+        
+        
+          {{#if positionCountGreaterThan 0}}
+            {{#each positions person._id}}
+                <div class="list-item">
+                    {{position destiny}}
+                    en
+                    {{company destiny}}
+                    {{#if validated}}<label class='label label-success'><small>{{_ "Validated"}}</small></label>{{else}}<label class='label label-info'><small>{{_ "Awaiting validation"}}</small></label>{{/if}}
+              <!--       <div class="pull-right">
+                 <button class='btn btn-xs btn-default js-edit-worker-rel'>
+                     <i class='fa fa-pencil'></i>
+                     </button>
+                                 </div> -->
+                </div>
+            {{/each}}
+              <hr>
+              <button class='js-create-worker-rel btn btn-xs btn-default'>{{_ "Create another position"}}</button>
+              
+          {{else}} <!-- //positionCountGreaterThan -->
+            <h4>{{_ "Complete your job profile"}}</h4>
+            <button class='js-create-worker-rel btn btn-xs btn-primary'>{{_ "Create a position"}}</button>
+            
+          {{/if}}
+        {{/if}}
+      </div> <!-- //list-item-container -->
+      {{else}}
+      {{_ "Loading"}}
+      {{/if}}
+    {{/panel}}
+  </div>
+</template>

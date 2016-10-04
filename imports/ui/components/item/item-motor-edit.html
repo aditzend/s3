@@ -1,0 +1,97 @@
+<template name="Item_motor_edit">
+  <div class="panel hpanel">
+    <div class="panel-heading hpanel">Crear nuevo motor</div>
+    <div class="panel-body hpanel">
+      <form class="form-horizontal" data-action='form'>
+        <div class="form-group">
+          <label class="control-label" for='productPrimaryDescription'>Descripcion primaria</label>
+          <input   id='productPrimaryDescriptionInput'   data-action='productPrimaryDescriptionInput' name='productPrimaryDescription' type="text" class="form-control"  value="Motor Tubular">
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='productSecondaryDescriptionInput'>Descripcion secundaria</label>
+          <input  id='productSecondaryDescriptionInput'   data-action='productSecondaryDescriptionInput' name='productSecondaryDescription' type="text" class="form-control"  value="Asincrónico Monofásico">
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='nameInput'>Modelo</label>
+          <input  placeholder=" 'TH 35/6-R', 'TH 35/10' " id='nameInput'   data-action='nameInput' name='name' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='diameterInput'>Diametro</label>
+          <input  placeholder=" '35mm', '50mm' " id='diameterInput'   data-action='diameterInput' name='diameter' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='voltageInput'>Voltaje</label>
+          <input  value='230V~' id='voltageInput'   data-action='voltageInput' name='voltage' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='frecuencyInput'>Frecuencia</label>
+          <input  value='50Hz' id='frecuencyInput'   data-action='frecuencyInput' name='frecuency' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='amperageInput'>Amperaje</label>
+          <input   placeholder=" '0,3A', '1,5A' " id='amperageInput'   data-action='amperageInput' name='amperage' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='powerInput'>Potencia</label>
+          <input   placeholder=" '90W', '126W' " id='powerInput'   data-action='powerInput' name='power' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='rpmInput'>RPM</label>
+          <input   placeholder=" '17rpm', '17rpm' " id='rpmInput'   data-action='rpmInput' name='rpm' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='maxTimeInput'>Tiempo maximo de uso</label>
+          <input   value='4min' id='maxTimeInput'   data-action='maxTimeInput' name='maxTime' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='IPclassInput'>Categoria IP</label>
+          <input   value='IP44' id='IPclassInput'   data-action='IPclassInput' name='IPclass' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='iClassInput'>Categoria I</label>
+          <input    placeholder=" 'I.CI.F', 'I.H.F' " id='iClassInput'   data-action='iClassInput' name='iClass' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for='torqueInput'>Torque</label>
+          <input    placeholder=" '50Nm', '30Nm' " id='torqueInput'   data-action='torqueInput' name='torque' type="text" class="form-control"  >
+          <span class='form-control-feedback'></span>
+          <span class='help-block'></span>
+        </div>
+        
+  
+    
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+          <div class="col-sm-8 col-sm-offset-2">
+            <span class="btn btn-default js-cancel">Cancelar</span>
+            <button class="btn btn-success js-save" type="submit">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>  
+  </div>    
+</template>

@@ -1,0 +1,10 @@
+<template name="Cash_flow_panel">
+  {{#panel title=(_ "Cash flow") built=true }}
+    <h3>  cash flow panel</h3>
+    {{#each cai in CurrentAccountItems}}
+      {{cai.dueDate}}
+    {{/each}}
+    
+  {{/panel}}
+
+</template>

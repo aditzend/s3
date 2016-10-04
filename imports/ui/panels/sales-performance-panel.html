@@ -1,0 +1,37 @@
+<template name="SalesPerformance_panel">
+  {{#panel title=(_ "Sales performance") color='hgreen'}}
+  {{#each pc in profitCenters}}
+<!-- {{#let perf=performance pc._id }} -->
+    
+  <div class="table-responsive">
+    <h3>{{pc.name}}</h3>
+    <h5>{{_ "Amount sold"}} : {{amountSold pc._id}}</h5>
+    <h5>{{_ "Revenue"}} : {{revenue pc._id}}</h5>
+                            <!-- <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
+                                <thead>
+                                <tr>
+                                    <th>{{_ "Item"}}</th>
+                                    <th>{{_ "Amount"}}</th>
+                                    <th>{{_ "Price"}}</th>
+                              
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each tood in (sales pc._id)}}
+                                <tr>
+                                    <td>{{tood.profitCenter}}</td>
+                                    <td>{{tood.item}}</td>
+                                    <td>{{tood.amount}}</td>
+                                    <td>{{tood.price}}</td>
+                                </tr>
+                      {{/each}}
+
+                                </tbody>
+                            </table> -->
+                        </div>
+                        
+                        {{/each}}
+
+
+  {{/panel}}
+</template>

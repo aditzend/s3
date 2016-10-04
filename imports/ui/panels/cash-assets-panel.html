@@ -1,0 +1,36 @@
+<template name="CashAssets_panel">
+  {{#panel title=(_ "Cash assets") panelClass="stats" color="hblue"}}
+
+  <div class="table-responsive">
+    <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
+      <thead>
+        <tr>
+            <th>{{_ "Name"}}</th>
+            <th>{{_ "Value"}}</th>
+            <th>{{_ "Type"}}</th>
+        </tr>
+        </thead>
+        <tbody>
+    
+    {{#each account in accounts}}
+    <tr>
+        <td >{{account.name}}</td>
+        <td class='js-sum'>{{account.value}}</td>
+        <td>{{account.type}}</td>
+      
+    </tr>
+    
+    
+    
+    {{/each}}
+                                
+                                
+                          
+
+                                </tbody>
+                            </table>
+                        </div>
+                        {{_ "Total"}}: {{sum}}  
+  
+{{/panel}}
+</template>

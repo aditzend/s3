@@ -1,0 +1,41 @@
+<template name="Items_panel">
+  {{#panel title="Productos" panelClass="stats" color="horange"}}
+    {{#if selectedItem}}
+    <div class="list-item">
+    <div class="">
+      <button class="js-deselect-item btn btn-primary">
+      <i class='fa fa-arrow-left'></i>
+      {{_ "Back to search"}}
+
+      </button>
+    </div>
+  </div>
+    <hr>
+        {{#if editingItem}}
+          {{> Item_edit editItemArgs}}
+        {{else}}
+    
+          <!-- {{> Item_show showthis}} -->
+          {{> Item_show (showItemArgs selectedItem)}}
+        {{/if}}
+      <hr>
+
+
+      <hr>
+
+    
+  
+      
+    {{else}} <!-- //selectedItem -->
+      {{#if creatingItem}}
+        {{> Item_edit createItemArgs }}
+      
+      {{else}}
+          <h3>Seleccionar producto</h3>
+          {{> Item_search searchItemArgs }}
+
+      
+      {{/if}}
+    {{/if}} <!-- //selectedItem -->
+{{/panel}}
+</template>

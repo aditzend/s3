@@ -1,0 +1,44 @@
+<template name="TooDetailEdit">
+TooDetailEdit
+      {{product}}
+      te
+      <div class='input-group'>
+        <label for='expectedDate'>{{_ "Expected date"}}</label>
+            <input name='expectedDate' class='form-control js-expected-date' type="date">
+      </div>
+      <div class='input-group'>
+        <label for='amount'>{{_ "Amount"}}</label>
+          <input name='amount' class='form-control js-amount' type="number">
+        </div>
+        <div class='input-group'>
+      
+      <label for='price'>{{_ "Price"}}</label>
+          <input name='price' class='form-control js-price' type="number">
+        </div>
+          
+          <div class='input-group'>
+      
+      <label for='discount'>{{_ "Discount"}}</label>
+          <input name='discount' class='form-control js-discount' type="number">
+        </div>
+          
+          <div class='input-group'>
+      
+      <label for='taxes'>{{_ "Taxes"}}</label>
+          <input name='taxes' class='form-control js-taxes' type="number">
+      
+        </div>
+      
+          <div class='wrapper'>
+            <button class='btn btn-success js-add-item'>{{_ "Ok"}}</button>
+            <button class='btn btn-danger js-cancel-item'>{{_ "Cancel"}}</button>
+            
+          </div>
+      
+      
+      
+      
+      
+
+  
+</template>

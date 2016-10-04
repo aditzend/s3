@@ -1,0 +1,30 @@
+<template name="PaymentMethodsPanel">
+  
+  <select class='form-control js-payment-method' id="category" name="category">
+    {{#each paymentMethod in paymentMethods}}
+    <option value="{{paymentMethod._id}}" {{isSelected paymentMethod._id}}> {{paymentMethod.name}}</option>
+    
+    {{/each}}
+  
+  </select>
+  
+  
+  
+  {{#if creatingMethod}}
+  <div class='form'>
+    <div class='form-group'>
+      <label for='name'>{{_ "Payment method name"}}</label>
+      <input id='name' name='name' type='text' placeholder='{{_ "Payment method name"}}'/>
+      <label for='days'>{{_ "Payment method days"}}</label>
+      
+      <input id='days' days='days' type='number' placeholder='{{_ "Payment method days"}}'/>
+      <span type='submit' class='btn btn-success js-save-payment-method'>{{_ 'Save'}}</span>
+      <span type='cancel' class='btn btn-danger js-cancel-payment-method'>{{_ 'Cancel'}}</span>
+    </div>
+  </div>
+  {{else}}
+  <span class='btn btn-sm btn-default js-create-payment-method'>{{_ "New payment method"}}</span>
+  
+  {{/if}}
+</template>
+
